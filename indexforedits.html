@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing Storage</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9fb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      color: #666;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: white;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      background: #333;
+      color: white;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .edit {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 1rem 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .edit h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Edit Storage</h1>
+    <p>View and organize your practice edits and projects</p>
+  </header>
+
+  <nav>
+    <a href="#" class="active" onclick="showSection('practices')">Practices</a>
+    <a href="#" onclick="showSection('projects')">Projects</a>
+  </nav>
+
+  <!-- PRACTICES SECTION -->
+  
+  <section id="practices" class="active">
+    <div class="edit">
+      <h2>Practice 1 ()</h2>
+      <iframe src="https://example.com/practice1.html"></iframe>
+    </div>
+    <div class="edit">
+      <h2>Practice 2()</h2>
+      <iframe src="https://example.com/practice2.html"></iframe>
+    </div>
+  </section>
+
+	
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <div class="edit">
+     
+	 <h2>Project 1 ()</h2>
+	 
+      <iframe src="https://example.com/portfolio.html"></iframe>
+    </div>
+
+   
+  </section>
+
+  <script>
+    function showSection(id, event) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+	  }
+  </script>
+</body>
+</html>
